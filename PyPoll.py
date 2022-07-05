@@ -31,10 +31,8 @@ winning_count = 0
 winning_percentage = 0
 
 with open(file_to_load) as election_data:
-
     file_reader = csv.reader(election_data)
-
-        #Read the Header Row
+    #Read the Header Row
     headers = next(file_reader)
 
 #Printing each row into the CSV file
@@ -43,7 +41,6 @@ with open(file_to_load) as election_data:
 
 #printing the candidate name in each row
         candidate_name = row[2]
-
         if  candidate_name not in candidate_options:
 
 #adding candidate name to the list
@@ -53,7 +50,7 @@ with open(file_to_load) as election_data:
             candidate_votes[candidate_name] = 0
 
 #INcrement the vote counts
-            candidate_votes[candidate_name] +=1
+        candidate_votes[candidate_name] +=1
 
 #Iterate through the candidate list
 for candidate_name in candidate_votes:
@@ -67,7 +64,6 @@ for candidate_name in candidate_votes:
     print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
     if(votes > winning_count) and (vote_percentage > winning_percentage):
-
         winning_count = votes
         winning_percentage = vote_percentage
         winning_candidate = candidate_name
@@ -86,6 +82,6 @@ winning_candidate_summary = (
 print(winning_candidate_summary)
 
 #3. Print the total votes
-print(candidate_votes)
+#print(candidate_votes)
 
 
